@@ -1,14 +1,21 @@
 # 执行步骤
 
-1.添加APIKEY.env
+1.安装依赖包
 
-DOUBAO_API_KEY=你的APIKEY
+    pip install -r requirements.txt
 
-2.强制加载：
+    pip show fastapi uvicorn openai python-dotenv
+
+2.添加APIKEY.env
+
+ARK_API_KEY=你的APIKEY
+ARK_MODEL=你的LLM
+
+3.强制加载：
 
     export $(grep -v '^#' ./APIKEY.env | xargs)
 
-3.确认末尾是否存在空格
+4.确认末尾是否存在空格
 
     python -c "
     import os
@@ -20,11 +27,8 @@ DOUBAO_API_KEY=你的APIKEY
         else:
             print(f'{k}: OK，末尾={repr(v[-3:])}')
     "
-
-
-    pip install -r requirements.txt
-
-    pip show fastapi uvicorn openai python-dotenv
+    
+5.执行app
 
     python3 -m uvicorn app:app --reload
 
