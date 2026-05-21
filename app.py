@@ -5,14 +5,15 @@ from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from openai import OpenAI
 from typing import List
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).parent
 SYSTEM_PROMPT = (BASE_DIR / "system_prompt_stage1.md").read_text(encoding="utf-8")
 
-# ── 替换这两行 ──────────────────────────────────────────
-ARK_API_KEY = os.getenv("ARK_API_KEY", "替换成你的API_KEY")
-ARK_MODEL   = os.getenv("ARK_MODEL",   "替换成你的推理接入点ID")   # 形如 ep-xxxxxxxx-xxxxx
-# ────────────────────────────────────────────────────────
+ARK_API_KEY = os.getenv("ARK_API_KEY")
+ARK_MODEL   = os.getenv("ARK_MODEL")
 
 client = OpenAI(
     api_key=ARK_API_KEY,
