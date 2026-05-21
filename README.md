@@ -22,4 +22,11 @@ DOUBAO_API_KEY=你的APIKEY
     "
 
 
+    pip install -r requirements.txt
+
+    pip show fastapi uvicorn openai python-dotenv
+
+    python3 -m uvicorn app:app --reload
+
+
 
