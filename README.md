@@ -23,7 +23,7 @@ ARK_MODEL=你的LLM
 
     python -c "
     import os
-    keys = ['DOUBAO_API_KEY']
+    keys = ['ARK_API_KEY']
     for k in keys:
         v = os.getenv(k, '')
         if not v:
